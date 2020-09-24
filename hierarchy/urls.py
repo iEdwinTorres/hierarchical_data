@@ -20,6 +20,8 @@ from hierarchy_app import views
 
 urlpatterns = [
     path('', views.show_trees, name="homepage"),
+    path('tree/<int:tree_id>/', views.tree_detail),
+    path('addtree/', views.add_tree_view),
     path('login/', views.login_view, name="login"),
     path('logout/', views.logout_view, name="logout"),
     path('admin/', admin.site.urls),

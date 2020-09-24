@@ -13,7 +13,7 @@ def show_trees(request):
 @login_required
 def add_tree_view(request):
     if request.method == "POST":
-        form = LoginForm(request.POST)
+        form = AddTreeForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
             Tree.objects.create(

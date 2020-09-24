@@ -1,13 +1,26 @@
-{% load mptt_tags %}
-<ul>
-    {% recursetree trees %}
-        <li>
-            {{ node.name }}
-            {% if not node.is_leaf_node %}
-                <ul class="children">
-                    {{ children }}
-                </ul>
-            {% endif %}
-        </li>
-    {% endrecursetree %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <h1>Welcome {{ request.user }}</h1>
+            {% load mptt_tags %}
+            <ul>
+                {% recursetree trees %}
+                <li>
+                    {{ node.name }} {% if not node.is_leaf_node %}
+                    <ul class="children">
+                        {{ children }}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endrecursetree %}
+                <a href="addtree/">Add a Branch</a>
+            </ul>
+        </div>
+    </body>
+</html>
